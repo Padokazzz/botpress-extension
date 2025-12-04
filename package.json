@@ -1,0 +1,47 @@
+{
+  "name": "botpress-webchat-vscode",
+  "displayName": "Botpress Webchat VSCode",
+  "description": "Chat Botpress Webchat 3.4 dentro do VS Code.",
+  "version": "3.0.0",
+  "publisher": "karenai",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "main": "./out/extension.js",
+
+  "contributes": {
+    "commands": [
+      {
+        "command": "botpressAssistant.openChat",
+        "title": "Abrir Botpress Webchat"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Botpress Webchat VSCode",
+      "properties": {
+        "botpressAssistant.botId": {
+          "type": "string",
+          "default": "",
+          "description": "Bot ID do Botpress Cloud (UUID)."
+        },
+        "botpressAssistant.clientId": {
+          "type": "string",
+          "default": "user_12345",
+          "description": "Client ID do Webchat."
+        }
+      }
+    }
+  },
+
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -w -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+
+  "devDependencies": {
+    "typescript": "^5.2.0",
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.85.0"
+  }
+}
